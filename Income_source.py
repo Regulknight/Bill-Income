@@ -17,7 +17,7 @@ class IncomeSource:
         self.price = price
 
     def get_income(self):
-        return  self.income*self.count_of_income_source
+        return self.income*self.count_of_income_source
 
     def refresh(self):
         self.t = self.time + self.t
