@@ -22,7 +22,6 @@ screen = pg.display.set_mode((640, 480))
 
 i = 0
 while game_cycle:
-
     for event in pg.event.get():
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_x:
@@ -38,7 +37,8 @@ while game_cycle:
     fontObj = pg.font.Font('Mono.ttf', 30)
 
     textSurfaceObj = fontObj.render("Capital: " + '%.2f' % (count_of_money) + " R", True, (255, 255, 255), (0, 0, 0))
-    textSurfaceObj_z = fontObj.render("Count of Bills: " + str(count_of_Bills), True, (255, 0 , 255), (0, 0, 0))
+    textSurfaceObj_z = fontObj.render("Count of Bills: " + str(count_of_Bills), True, (255, 0, 255), (0, 0, 0))
+
     textRectObj_z = textSurfaceObj_z.get_rect()
     textRectObj = textSurfaceObj.get_rect()
     textRectObj.midleft = (150, 225)

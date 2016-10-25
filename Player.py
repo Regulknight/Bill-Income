@@ -9,7 +9,7 @@ class Player:
         self.money = 0
 
     def get_income(self, i_s):
-        self.money += i_s.get_income()
+        self.money = self.money + i_s.get_income()
 
 #    def buy_income_source(self, i, n):
 #        if self.income_source[i].get_price(n) * n <= self.money:

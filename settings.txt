@@ -1,0 +1,2 @@
+screen_size 1600 900
+full_screen 0
