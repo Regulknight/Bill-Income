@@ -9,9 +9,8 @@ class Button:
     listeners = []
 
     def notify(self):
-        for i in self.listeners:
-            i.get_event(self.name)
-            print("button " + self.name + " was pressed")
+        self.listeners[0].get_event(self.name)
+
 
     def __init__(self, name, rect, color):
         self.name = name

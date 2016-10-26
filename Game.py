@@ -23,8 +23,8 @@ class Game:
                 for i_s in self.player.income_sources:
                     if i[0].name == i_s.name:
                         if i_s.get_price(1) <= self.player.money:
-                            i_s.buy_income_source(1)
                             self.player.money -= i_s.get_price(1)
+                            i_s.buy_income_source(1)
 
     def add_button(self, button):
         b = Button(button.name, button.rect, button.color)

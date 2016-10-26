@@ -30,8 +30,8 @@ class Player:
 
     def buy_income_source(self, i, n):
         if self.income_source[i].get_price(n) <= self.money:
-            self.income_sources[i].buy_income_source(n)
             self.money -= self.income_sources[i].get_price(n)
+            self.income_sources[i].buy_income_source(n)
 
     def tick(self, t):
         for i in self.income_sources:
