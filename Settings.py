@@ -3,7 +3,7 @@ class Settings:
     screen_height = 480
     full_screen = False
 
-    def load_settings(self, path='settings.txt'):
+    def load_settings(self, path):
         f = open(path, 'r')
         parameter = f.readline()
         self.screen_width = int(parameter.split(' ')[1])

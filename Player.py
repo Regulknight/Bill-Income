@@ -1,11 +1,28 @@
+from Income_source import IncomeSource
+
+def load_income_source(filename):
+    income_sources = []
+    f = open(filename, 'r')
+    for str in f:
+        i_s = str.split(' ')
+        name = i_s[0]
+        inc = float(i_s[1])
+        t = float(i_s[2])
+        count = float(i_s[3])
+        price = float(i_s[4])
+        n = float(i_s[5])
+        income_source = IncomeSource(name, inc, t, count, price, n)
+        income_sources.append(income_source)
+    return income_sources
 
 
 class Player:
     money = 0
     income_sources = []
 
-    def __init__(self, i_s):
-        self.income_sources = i_s
+    def __init__(self, path="Source_of_income_data.txt"):
+
+        self.income_sources = load_income_source(path)
         self.money = 0
 
     def get_income(self, i_s):

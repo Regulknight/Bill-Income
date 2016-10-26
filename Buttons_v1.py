@@ -22,13 +22,6 @@ class Game:
         for button in self.buttons:
             button.draw_button()
 
-
-# bikes - it's fun, but pygame have function to do it
-def is_into(dot, rect):
-    if dot[0] < rect[0][0] or dot[0] > rect[0][0] + rect[1][0] or dot[1] < rect[0][1] or dot[1] > rect[0][1] + rect[1][1]:
-        return False
-    return True
-
 pygame.init()
 screen = pygame.display.set_mode((640, 480))
 
@@ -52,7 +45,7 @@ cycle = True
 while cycle:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if is_into(pygame.mouse.get_pos(), button.rect):
+            if button.rect.collidepoint(pygame.mouse.get_pos()):
                 button.notify()
 
     screen.fill((0, 0, 0))

@@ -1,9 +1,10 @@
 import pygame
 
+
 class Button:
     name = ""
     # rect (top left corner), (width, height)
-    rect = (10, 10), (50, 20)
+    rect = pygame.Rect((10, 10), (50, 20))
     color = (255, 255, 255)
     listeners = []
 
@@ -13,7 +14,7 @@ class Button:
 
     def __init__(self, name, rect, color):
         self.name = name
-        self.rect = rect
+        self.rect = pygame.Rect(rect)
         self.color = color
 
     def add_listener(self, listener):
