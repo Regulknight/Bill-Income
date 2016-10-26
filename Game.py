@@ -1,5 +1,6 @@
 from Settings import Settings
 from Player import Player
+from Button import Button
 import pygame
 
 
@@ -18,20 +19,26 @@ class Game:
 
     def get_event(self, msg):
         for i in self.buttons:
-            if i[0] == msg:
-                i[1] += 1
+            if i[0].name == msg:
+                for i_s in self.player.income_sources:
+                    if i[0].name == i_s.name:
+                        if i_s.get_price(1) <= self.player.money:
+                            i_s.buy_income_source(1)
+                            self.player.money -= i_s.get_price(1)
 
     def add_button(self, button):
-        self.buttons.append([button.name, 0])
+        b = Button(button.name, button.rect, button.color)
+        self.buttons.append([b, 0])
+        b.add_listener(self)
 
     def count_of_b_pressed(self, name):
         for i in self.buttons:
-            if i[0] == name:
+            if i[0].name == name:
                 return i[1]
 
     def draw_buttons(self):
         for button in self.buttons:
-            button.draw_button()
+            button[0].draw_button(self.screen)
 
     def load_settings(self, path="settings.txt"):
         self.settings.load_settings(path)
