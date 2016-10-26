@@ -1,20 +1,16 @@
-def buy_bill():
-    global count_of_Bills
-    global count_of_money
-    if count_of_money > 62000:
-        count_of_money -= 62000
-        count_of_Bills += 1
+def is_into(dot, rect):
+    if dot[0] < rect[0][0] or dot[0] > rect[0][0] + rect[1][0] or dot[1] < rect[0][1] or dot[1] > rect[0][1] + rect[1][1]:
+        return False
+    return True
 
+rect = (0.5, 0.5), (1, 1)
 
-income_per_millisec = 60.83
+mas = []
 
-
-while game_cycle:
-    for event in pg.event.get():
-        if event.type == pg.KEYDOWN:
-            if event.key == pg.K_x:
-                buy_bill()
-            if event.key == pg.K_ESCAPE:
-                game_cycle = False
-
-
+for i in range(0, 20, 1):
+    line = []
+    for j in range(0, 20, 1):
+        line.append(is_into((i/10, j/10), rect))
+    mas.append(line)
+for i in mas:
+    print(i)
