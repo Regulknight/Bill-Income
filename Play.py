@@ -30,6 +30,8 @@ while game_cycle:
             for button in game.buttons:
                 if button[0].rect.collidepoint(pygame.mouse.get_pos()):
                     button[0].notify()
+        if event.type == pygame.QUIT:
+            raise SystemExit
 
     pygame.draw.rect(game.screen, (0,0,0), back)
     game.print_msg("Capital: " + '%.2f' % game.player.money + " R", 30, (255, 255, 255), (0, 0, 0), (150, 240))

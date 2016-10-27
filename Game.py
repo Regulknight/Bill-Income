@@ -1,7 +1,7 @@
-from Settings import Settings
-from Player import Player
-from Button import Button
 import pygame
+
+from Player import Player
+from Settings import Settings
 
 
 class Game:
@@ -27,9 +27,8 @@ class Game:
                             i_s.buy_income_source(1)
 
     def add_button(self, button):
-        b = Button(button.name, button.rect, button.color)
-        self.buttons.append([b, 0])
-        b.add_listener(self)
+        button.add_listener(self)
+        self.buttons.append([button, 0])
 
     def count_of_b_pressed(self, name):
         for i in self.buttons:

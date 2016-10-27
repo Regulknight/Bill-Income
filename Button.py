@@ -6,16 +6,16 @@ class Button:
     # rect (top left corner), (width, height)
     rect = pygame.Rect((10, 10), (50, 20))
     color = (255, 255, 255)
-    listeners = []
 
     def notify(self):
-        self.listeners[0].get_event(self.name)
-
+        for i in self.listeners:
+            i.get_event(self.name)
 
     def __init__(self, name, rect, color):
         self.name = name
         self.rect = pygame.Rect(rect)
         self.color = color
+        self.listeners = []
 
     def add_listener(self, listener):
         self.listeners.append(listener)
