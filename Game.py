@@ -7,7 +7,7 @@ from Settings import Settings
 class Game:
     buttons = []
     settings = Settings()
-    screen = pygame.display.set_mode()
+    screen = ""
     player = Player()
 
     def __init__(self):
